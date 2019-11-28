@@ -1,5 +1,6 @@
 <?php
 
+
 class Upload
 {
     public function uploadFile()
@@ -19,5 +20,6 @@ class Upload
         } else {
             return 'Error';
         }
+        return "Done!";
     }
 }

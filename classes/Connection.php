@@ -13,7 +13,8 @@ class Connection
         $this->pdo = new PDO($dsn, $login, $password);
     }
 
-    public static function getInstance(){
+    public static function getInstance()
+    {
         if (!self::$instance) {
             self::$instance = new Connection();
         }
@@ -27,10 +28,20 @@ class Connection
         return $statement->fetchAll(PDO::FETCH_ASSOC);
     }
 
+    public function save($filename, $bookName, $authorName)
+    {
+        $this->query("INSERT INTO `books` (`filename`, `bookName`, `authorName`) VALUES ('$filename', '$bookName', '$authorName')");
+    }
+
+    public function getAll()
+    {
+        return $result = $this->query('SELECT `filename`, `bookName`, `authorName` FROM `books`');
+    }
+
     public function getPaginat($start, $stop)
     {
 
-       print_r($qq = $this->query("SELECT * FROM `books` LIMIT '$start', '$stop'"));die();
+        return $result = $this->query("SELECT * FROM `books` LIMIT $start, $stop");
 
     }
 }

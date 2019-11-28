@@ -59,10 +59,11 @@ require_once('controller.php');
     </thead>
     <tbody>
     <?php
-    for ($i = 0; $i < $quantity; $i++) {
-        $row = $allInDatabase["$i"];
+
+    for ($i = 0; $i < $quantityOnPage; $i++) {
+        $row = $result["$i"];
         echo '<tr>
-                                <td>' . $number++ . '</td>
+                                <td>' . $startNumber++ . '</td>
                                 <td>' . $row['filename'] . '</td>
                                 <td>' . $row['bookName'] . '</td>
                                 <td>' . $row['authorName'] . '</td>
